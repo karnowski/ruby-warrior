@@ -25,9 +25,12 @@ begin
     gemspec.email       = "ryan@railscasts.com"
     gemspec.homepage    = "http://github.com/ryanb/ruby-warrior"
     gemspec.authors     = ["Ryan Bates"]
+    
+    gemspec.add_development_dependency('rspec')
+    gemspec.add_development_dependency('cucumber')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
 
-task :default => [:spec, :features]
+task :default => [:check_dependencies, :spec, :features]
